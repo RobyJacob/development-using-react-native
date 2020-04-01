@@ -21,6 +21,7 @@ function updateUncheckedItemCount() {
 
 function newTodo() {
 	let input = prompt("Enter TODO");
+<<<<<<< HEAD
 
 	let item = document.createElement("li");
 	item.className = classNames.TODO_ITEM;
@@ -47,4 +48,10 @@ function newTodo() {
 	itemCount++;
 	updateItemCount();
 	updateUncheckedItemCount();
+=======
+	let item = document.createElement("li");
+
+	item.appendChild(document.createTextNode(input));
+	list.appendChild(item);
+>>>>>>> 4f8302b09b80fe2c215b909ec2b33a99a54dfe01
 }
