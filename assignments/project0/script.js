@@ -21,14 +21,22 @@ function updateUncheckedItemCount() {
 
 function newTodo() {
 	let input = prompt("Enter TODO");
-<<<<<<< HEAD
 
 	let item = document.createElement("li");
 	item.className = classNames.TODO_ITEM;
 
-	let itemCheckeBox = document.createElement("input");
-	itemCheckeBox.setAttribute("type", "checkbox");
-	itemCheckeBox.className = classNames.TODO_CHECKBOX;
+	let itemCheckBox = document.createElement("input");
+	itemCheckBox.setAttribute("type", "checkbox");
+	itemCheckBox.className = classNames.TODO_CHECKBOX;
+	itemCheckBox.addEventListener("change", function() {
+		if (this.checked) {
+			uncheckedItemCount--;
+			updateUncheckedItemCount();
+		} else {
+			uncheckedItemCount++;
+			updateUncheckedItemCount();
+		}
+	});
 
 	let text = document.createElement("span");
 	text.className = classNames.TODO_TEXT;
@@ -37,21 +45,26 @@ function newTodo() {
 	let itemDelete = document.createElement("button");
 	itemDelete.innerText = "Delete";
 	itemDelete.className = classNames.TODO_DELETE;
-	itemDelete.addEventListener("click", function() { list.removeChild(this.parentNode); itemCount--; updateItemCount(); });
+	itemDelete.addEventListener("click", function() { 
+		list.removeChild(this.parentNode); 
+		itemCount--; 
+		updateItemCount();
+
+		if (!itemCheckBox.checked) {
+			uncheckedItemCount--;
+			updateUncheckedItemCount();
+		}
+	});
 	
 	item.appendChild(text);
-	item.appendChild(itemCheckeBox);
+	item.appendChild(itemCheckBox);
 	item.appendChild(itemDelete);
 
 	list.appendChild(item);
 
 	itemCount++;
 	updateItemCount();
-	updateUncheckedItemCount();
-=======
-	let item = document.createElement("li");
 
-	item.appendChild(document.createTextNode(input));
-	list.appendChild(item);
->>>>>>> 4f8302b09b80fe2c215b909ec2b33a99a54dfe01
+	uncheckedItemCount++;
+	updateUncheckedItemCount();
 }
