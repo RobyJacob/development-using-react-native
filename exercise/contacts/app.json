@@ -1,12 +1,11 @@
 {
   "expo": {
-    "name": "project1",
-    "description": "This project is really great.",
-    "slug": "project1",
-    "privacy": "public",
+    "name": "contacts",
+    "slug": "contacts",
     "platforms": [
       "ios",
-      "android"
+      "android",
+      "web"
     ],
     "version": "1.0.0",
     "orientation": "portrait",
@@ -16,6 +15,12 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     }
